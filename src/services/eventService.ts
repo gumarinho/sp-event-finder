@@ -53,7 +53,9 @@ class EventbriteService {
         imageUrl: event.logo?.url,
         isFree: event.is_free,
         url: event.url,
-        organizer: event.organizer?.name || ''
+        organizer: event.organizer?.name || '',
+        state: event.venue?.address?.region || 'SP',
+        city: event.venue?.address?.city || 'São Paulo'
       }));
     } catch (error) {
       console.error('Erro ao buscar eventos:', error);
@@ -93,7 +95,9 @@ class EventbriteService {
         imageUrl: event.logo?.url,
         isFree: event.is_free,
         url: event.url,
-        organizer: event.organizer?.name || ''
+        organizer: event.organizer?.name || '',
+        state: event.venue?.address?.region || 'SP',
+        city: event.venue?.address?.city || 'São Paulo'
       };
     } catch (error) {
       console.error('Erro ao buscar evento:', error);

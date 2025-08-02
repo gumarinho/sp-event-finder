@@ -11,7 +11,9 @@ export const mockEvents: Event[] = [
     imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=400&fit=crop',
     isFree: true,
     url: 'https://example.com/festival-arte-rua',
-    organizer: 'Coletivo Arte SP'
+    organizer: 'Coletivo Arte SP',
+    state: 'SP',
+    city: 'São Paulo'
   },
   {
     id: '2',
@@ -23,7 +25,9 @@ export const mockEvents: Event[] = [
     imageUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=400&fit=crop',
     isFree: false,
     url: 'https://example.com/jazz-blue-note',
-    organizer: 'Blue Note'
+    organizer: 'Blue Note',
+    state: 'SP',
+    city: 'São Paulo'
   },
   {
     id: '3',
@@ -35,30 +39,77 @@ export const mockEvents: Event[] = [
     imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=400&fit=crop',
     isFree: true,
     url: 'https://example.com/feira-mercadao',
-    organizer: 'Mercado Municipal SP'
+    organizer: 'Mercado Municipal SP',
+    state: 'SP',
+    city: 'São Paulo'
   },
   {
     id: '4',
     title: 'Workshop de Fotografia Urbana',
     description: 'Aprenda técnicas avançadas de fotografia urbana explorando os pontos mais icônicos de São Paulo. Material fotográfico fornecido.',
-    date: '2024-08-18T09:00:00Z',
+    date: '2024-09-18T09:00:00Z',
     location: 'Centro Cultural Banco do Brasil',
     address: 'Rua Álvares Penteado, 112, Centro, São Paulo - SP',
     isFree: false,
     url: 'https://example.com/workshop-fotografia',
-    organizer: 'Escola de Fotografia SP'
+    organizer: 'Escola de Fotografia SP',
+    state: 'SP',
+    city: 'São Paulo'
   },
   {
     id: '5',
     title: 'Sarau Poético no Parque Ibirapuera',
     description: 'Uma tarde de poesia e música ao ar livre no coração de São Paulo. Venha compartilhar seus versos ou apenas aproveitar as apresentações.',
-    date: '2024-08-20T15:00:00Z',
+    date: '2024-09-20T15:00:00Z',
     location: 'Parque Ibirapuera',
     address: 'Av. Paulista, s/n, Ibirapuera, São Paulo - SP',
     imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop',
     isFree: true,
     url: 'https://example.com/sarau-ibirapuera',
-    organizer: 'Coletivo Poético SP'
+    organizer: 'Coletivo Poético SP',
+    state: 'SP',
+    city: 'São Paulo'
+  },
+  {
+    id: '6',
+    title: 'Festival de Música no Rock in Rio',
+    description: 'O maior festival de música do mundo chega ao Rio de Janeiro com artistas nacionais e internacionais.',
+    date: '2024-08-25T18:00:00Z',
+    location: 'Cidade do Rock',
+    address: 'Av. Salvador Allende, Barra da Tijuca, Rio de Janeiro - RJ',
+    imageUrl: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&h=400&fit=crop',
+    isFree: false,
+    url: 'https://example.com/rock-in-rio',
+    organizer: 'Rock in Rio',
+    state: 'RJ',
+    city: 'Rio de Janeiro'
+  },
+  {
+    id: '7',
+    title: 'Feira de Artesanato de Embu das Artes',
+    description: 'Conheça o trabalho de artesãos locais em uma das maiores feiras de artesanato do Brasil.',
+    date: '2024-08-17T09:00:00Z',
+    location: 'Centro de Embu das Artes',
+    address: 'Largo dos Jesuítas, Embu das Artes - SP',
+    imageUrl: 'https://images.unsplash.com/photo-1441906363162-903afd0d3d52?w=800&h=400&fit=crop',
+    isFree: true,
+    url: 'https://example.com/feira-embu',
+    organizer: 'Prefeitura de Embu das Artes',
+    state: 'SP',
+    city: 'Embu das Artes'
+  },
+  {
+    id: '8',
+    title: 'Show de Sertanejo Universitário',
+    description: 'Uma noite especial com os maiores sucessos do sertanejo universitário em Goiânia.',
+    date: '2024-10-05T20:00:00Z',
+    location: 'Arena Goiânia',
+    address: 'Av. Fued José Sebba, Jardim Goiás, Goiânia - GO',
+    isFree: false,
+    url: 'https://example.com/sertanejo-goiania',
+    organizer: 'Arena Goiânia',
+    state: 'GO',
+    city: 'Goiânia'
   }
 ];
 

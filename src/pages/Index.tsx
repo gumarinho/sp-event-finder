@@ -17,7 +17,13 @@ const Index = () => {
   const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [filters, setFilters] = useState<EventFilters>({ search: '', freeOnly: false });
+  const [filters, setFilters] = useState<EventFilters>({ 
+    search: '', 
+    freeOnly: false, 
+    state: '', 
+    city: '', 
+    period: 'all' 
+  });
 
   const loadEvents = async () => {
     try {
@@ -55,6 +61,36 @@ const Index = () => {
       );
     }
 
+    // Filtrar por estado
+    if (filters.state) {
+      filtered = filtered.filter(event => event.state === filters.state);
+    }
+
+    // Filtrar por cidade
+    if (filters.city) {
+      filtered = filtered.filter(event => event.city === filters.city);
+    }
+
+    // Filtrar por período
+    if (filters.period !== 'all') {
+      const now = new Date();
+      const eventDate = new Date();
+      
+      if (filters.period === 'week') {
+        const weekFromNow = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+        filtered = filtered.filter(event => {
+          const eventDateObj = new Date(event.date);
+          return eventDateObj >= now && eventDateObj <= weekFromNow;
+        });
+      } else if (filters.period === 'month') {
+        const monthFromNow = new Date(now.getFullYear(), now.getMonth() + 1, now.getDate());
+        filtered = filtered.filter(event => {
+          const eventDateObj = new Date(event.date);
+          return eventDateObj >= now && eventDateObj <= monthFromNow;
+        });
+      }
+    }
+
     // Filtrar apenas gratuitos
     if (filters.freeOnly) {
       filtered = filtered.filter(event => event.isFree);
@@ -85,9 +121,9 @@ const Index = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-2">
             <Calendar className="h-8 w-8" />
-            <h1 className="text-3xl font-bold">O que fazer em SP</h1>
+            <h1 className="text-3xl font-bold">oque fazer</h1>
           </div>
-          <p className="text-white/90">Descubra os melhores eventos de São Paulo</p>
+          <p className="text-white/90">Descubra os melhores eventos do Brasil</p>
         </div>
       </div>
 
@@ -140,18 +176,18 @@ const Index = () => {
                 <Calendar className="h-16 w-16 text-muted-foreground mx-auto opacity-50" />
                 <div>
                   <h3 className="text-lg font-semibold text-muted-foreground">
-                    {filters.search.trim() || filters.freeOnly ? 'Nenhum evento encontrado' : 'Nenhum evento disponível'}
+                    {filters.search.trim() || filters.freeOnly || filters.state || filters.city || filters.period !== 'all' ? 'Nenhum evento encontrado' : 'Nenhum evento disponível'}
                   </h3>
                   <p className="text-muted-foreground">
-                    {filters.search.trim() || filters.freeOnly 
+                    {filters.search.trim() || filters.freeOnly || filters.state || filters.city || filters.period !== 'all'
                       ? 'Tente ajustar os filtros de busca' 
                       : 'Novos eventos serão adicionados em breve'
                     }
                   </p>
                 </div>
-                {(filters.search.trim() || filters.freeOnly) && (
+                {(filters.search.trim() || filters.freeOnly || filters.state || filters.city || filters.period !== 'all') && (
                   <Button 
-                    onClick={() => setFilters({ search: '', freeOnly: false })}
+                    onClick={() => setFilters({ search: '', freeOnly: false, state: '', city: '', period: 'all' })}
                     variant="outline"
                   >
                     Limpar filtros
